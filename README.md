@@ -80,3 +80,37 @@ methods:
 - get_name_suggestions()
 - get_name_cultures()
 
+## Phone
+### cleate Phone class
+
+properties:
+- base_url
+
+methods:
+- get_url()
+- generate()
+- get_IMEI()
+- is_valid()
+- get_countries()
+
+## SocialNumber
+### cleate SocialNumber class
+
+properties:
+- base_url
+
+methods:
+- get_url()
+- get_SocialNumber()
+
+## Text
+### cleate Text class
+
+properties:
+- base_url
+
+methods:
+- get_url()
+- generate_LoremIpsum()
+- generate_password()
+
