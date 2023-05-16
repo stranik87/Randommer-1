@@ -11,7 +11,16 @@ class Finance(Randommer):
         Returns:
             list: list of types
         '''
-        pass
+        endpoint = 'Finance/CryptoAddress/Types'
+        url = self.get_url() + endpoint
+        headers = {
+            'X-Api-Key': api_key
+        }
+        response = requests.get(url=url, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
 
     def get_crypto_address(self, crypto_type: str, api_key: str) -> dict:
         '''get available crypto address
@@ -23,7 +32,20 @@ class Finance(Randommer):
         Returns:
             dict: crypto address
         '''
-        pass
+        endpoint = 'Finance/CryptoAddress'
+        url = self.get_url() + endpoint
+        payload = {
+            'cryptoType': crypto_type
+        }
+        headers = {
+            'X-Api-Key': api_key
+        }
+        res = requests.get(url=url,params=payload,headers=headers)
+
+        if res.status_code == 200:
+            return res.json()
+        else:
+            return None
 
     def get_countries(self, api_key: str) -> list:
         '''get available countries
@@ -46,4 +68,8 @@ class Finance(Randommer):
         Returns:
             dict: idan data
         '''
-        pass
+       
+
+fin = Finance()
+
+print(fin.get_crypto_address('Polis','8a2128f0e8254c4c8bbe8561b12f88c0'))
